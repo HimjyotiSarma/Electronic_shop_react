@@ -1,0 +1,10 @@
+.product_page {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(500px, 5fr);
+}
+
+@media only screen and (max-width: 768px) {
+  .product_page {
+    display: block;
+  }
+}
