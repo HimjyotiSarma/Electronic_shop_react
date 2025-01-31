@@ -1,0 +1,268 @@
+// Cart Page Container
+.cart_page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 70vh;
+
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+  }
+}
+
+// Cart Items List
+.cart_items_list {
+  display: grid;
+  gap: 1.5rem;
+
+  .cart_heading {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 1rem 0;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+
+    p:first-child {
+      padding-left: 7.5rem; // Align with item content
+    }
+  }
+}
+
+// Cart Item Component
+.cart_item_section {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f5f5f5;
+
+  .cart_item_info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .cart_item_details {
+      h3.cart_item_name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0.4rem;
+      }
+
+      h5 {
+        font-size: 0.9rem;
+        color: #666;
+        font-weight: 400;
+        margin: 0.25rem 0;
+      }
+    }
+  }
+
+  .cart_item_price {
+    font-weight: 500;
+    color: #444;
+  }
+
+  .cart_item_quantity {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f8f8f8;
+        border-color: #ccc;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  .cart_item_total_price {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-weight: 600;
+    color: #333;
+
+    svg {
+      color: #ff4444;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #cc0000;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+// Pricing Summary
+.subtotal_section {
+  margin-top: 3rem;
+  max-width: 400px;
+  margin-left: auto;
+  padding: 1.5rem;
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .head {
+      font-weight: 500;
+      color: #666;
+    }
+
+    div {
+      font-weight: 500;
+      color: #333;
+    }
+  }
+
+  .grand_total_section {
+    .head {
+      font-size: 1.1rem;
+    }
+
+    div {
+      font-size: 1.2rem;
+      color: #2a7a2a;
+      font-weight: 700;
+    }
+  }
+}
+
+// Checkout Section
+.checkout_area {
+  margin-top: 2rem;
+  text-align: right;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 3rem;
+    background: #2a7a2a;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(42, 122, 42, 0.1);
+
+    &:hover {
+      background: #1f5d1f;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 8px rgba(42, 122, 42, 0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .cart_page {
+    padding: 1.5rem 1rem;
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .cart_items_list {
+    .cart_heading {
+      display: none;
+    }
+  }
+
+  .cart_item_section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    position: relative;
+
+    .cart_item_info {
+      flex-direction: column;
+      align-items: flex-start;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 200px;
+      }
+    }
+
+    .cart_item_quantity {
+      justify-content: flex-start;
+    }
+
+    .cart_item_total_price {
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+
+      svg {
+        position: absolute;
+        top: 1.5rem;
+        right: 0;
+      }
+    }
+  }
+
+  .subtotal_section {
+    max-width: 100%;
+    padding: 1.25rem;
+  }
+
+  .checkout_area {
+    text-align: center;
+
+    a {
+      width: 100%;
+      padding: 1.25rem;
+    }
+  }
+}

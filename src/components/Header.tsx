@@ -3,12 +3,16 @@ import style from '../styles/modules/header.module.scss'
 import { FaCartShopping } from 'react-icons/fa6'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { useEffect, useState } from 'react'
-import logoImg from '../assets/electronic_shop.png'
+import logoImg from '../assets/images/logo_fashion.png'
 import useWindowDimension from '../utils/useWindowDimension'
+import { useCartStore } from '../stores/cart/store'
 
 const Header = () => {
   const [showList, setShowList] = useState(false)
   const { width } = useWindowDimension()
+
+  const cart = useCartStore((state) => state.cart)
+  const totalCartItems = cart.reduce((total, item) => total + item.quantity, 0)
 
   useEffect(() => {
     if (width > 768) {
@@ -45,6 +49,7 @@ const Header = () => {
       <div className={style.userSection}>
         <NavLink className={style.cartSection} to="/cart">
           <FaCartShopping />
+          {totalCartItems > 0 && <span>{totalCartItems}</span>}
         </NavLink>
         <button
           className={style.listBtn}

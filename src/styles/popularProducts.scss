@@ -1,0 +1,111 @@
+.popular_products_section {
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 4rem;
+  background-color: #f8f9fa;
+
+  .left_banner_section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 30%;
+    min-height: 30%;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .right_popular_product_section {
+    flex: 1.5;
+
+    h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2a9d8f;
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 70%;
+        background-color: #e9c46a;
+        border-radius: 2px;
+      }
+    }
+
+    .popular_products {
+      display: grid;
+      grid-template-columns: minmax(150px, 1fr) minmax(150px, 1fr) minmax(
+          150px,
+          1fr
+        );
+      gap: 1.5rem;
+      align-items: start;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 2rem;
+
+    .left_banner_section {
+      max-width: 100%;
+      text-align: center;
+
+      img {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    .right_popular_product_section {
+      h4 {
+        font-size: 1.3rem;
+        text-align: center;
+        padding-left: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    .right_popular_product_section {
+      .popular_products {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+// .error_data {
+//   padding: 2rem;
+//   color: #e63946;
+//   font-weight: 500;
+//   text-align: center;
+// }

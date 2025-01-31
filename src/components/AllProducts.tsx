@@ -12,7 +12,7 @@ const AllProducts = () => {
 
   const { isPending, error, data } = useQuery({
     queryKey: ['allProducts'],
-    queryFn: () => getProducts('https://fakestoreapi.in/api/products?limit=50'),
+    queryFn: () => getProducts('https://fakestoreapi.com/products'),
   })
   if (error != null) {
     return <div className="error_data">{error.message}</div>

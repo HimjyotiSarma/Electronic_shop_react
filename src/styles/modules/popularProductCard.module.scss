@@ -1,0 +1,81 @@
+// productCard.module.scss
+
+.popularCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageContainer {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.popularImage {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.popularContent {
+  padding: 0 0.5rem;
+}
+
+.popularTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  min-height: 3em;
+}
+
+.popularDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ratingSection {
+  .rating {
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+}
+
+.priceSection {
+  .popularPrice {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2a9d8f;
+  }
+}
+
+// Add media queries for responsiveness
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 150px;
+  }
+
+  .popularTitle {
+    font-size: 0.9rem;
+  }
+
+  .rating {
+    font-size: 0.8rem;
+  }
+
+  .popularPrice {
+    font-size: 1rem;
+  }
+}

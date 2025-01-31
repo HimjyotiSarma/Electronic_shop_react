@@ -2,16 +2,16 @@ import axios, { AxiosResponse } from 'axios'
 // import { useEffect, useState } from 'react'
 import { Product } from './types'
 
-interface FetchProductsResponse {
-  status: string
-  message: string
-  products: Product[]
-}
-interface FetchSingleProductResponse {
-  status: string
-  message: string
-  product: Product
-}
+// interface FetchProductsResponse {
+//   status: string
+//   message: string
+//   products: Product[]
+// }
+// interface FetchSingleProductResponse {
+//   status: string
+//   message: string
+//   product: Product
+// }
 
 // const useProductFetch = (url: string) => {
 //   const [data, setData] = useState<Product[]>([])
@@ -61,15 +61,22 @@ interface FetchSingleProductResponse {
 // }
 
 const getProducts = async (url: string) => {
-  const response: AxiosResponse<FetchProductsResponse> = await axios.get(url)
-  return response.data.products
+  const response: AxiosResponse<Product[]> = await axios.get(url)
+  return response.data
+}
+const getPopularProducts = async (url: string) => {
+  const response: AxiosResponse<Product[]> = await axios.get(url)
+  const popularProducts = response.data.filter((item) => item.rating.rate > 4)
+  return popularProducts.slice(0, 6)
 }
 
 const getSingleProduct = async (url: string) => {
-  const response: AxiosResponse<FetchSingleProductResponse> = await axios.get(
-    url
-  )
-  return response.data.product
+  const response: AxiosResponse<Product> = await axios.get(url)
+  return response.data
+}
+const getCategories = async (url: string) => {
+  const response: AxiosResponse<string[]> = await axios.get(url)
+  return response.data
 }
 
-export { getProducts, getSingleProduct }
+export { getProducts, getSingleProduct, getPopularProducts, getCategories }

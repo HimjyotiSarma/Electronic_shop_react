@@ -1,17 +1,42 @@
+// interface Product {
+//   id: number
+//   title: string
+//   image: string
+//   price: number
+//   description: string
+//   brand: string
+//   model: string
+//   color: string
+//   category: string
+//   discount?: number
+//   popular?: boolean
+// }
 interface Product {
   id: number
   title: string
-  image: string
   price: number
   description: string
-  brand: string
-  model: string
-  color: string
   category: string
-  discount?: number
-  popular?: boolean
+  image: string
+  rating: Rating
 }
-type CartItem = Product & {
+interface CartItem {
+  id: number
+  title: string
+  price: number
+  description: string
+  category: string
+  image: string
+  rating: Rating
   quantity: number
 }
-export { type Product, type CartItem }
+
+interface Rating {
+  rate: number
+  count: number
+}
+
+interface SingleCartItemType {
+  item: CartItem
+}
+export { type Product, type CartItem, type SingleCartItemType }

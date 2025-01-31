@@ -8,9 +8,9 @@ interface ProductCardType {
 }
 const ProductCard = ({ data }: ProductCardType) => {
   const navigate = useNavigate()
-  const costPrice = data.discount
-    ? Math.ceil(data.price / (1 - data.discount / 100))
-    : ''
+  // const costPrice = data.discount
+  //   ? Math.ceil(data.price / (1 - data.discount / 100))
+  //   : ''
   return (
     <motion.div
       className={styles.card}
@@ -28,7 +28,7 @@ const ProductCard = ({ data }: ProductCardType) => {
         transition: { duration: 0.3 },
       }}
       onClick={() => {
-        navigate(`${data.id}`)
+        navigate(`/products/${data.id}`)
       }}
     >
       <img src={data.image} alt={data.title} />
@@ -39,16 +39,16 @@ const ProductCard = ({ data }: ProductCardType) => {
             : data.title}
         </h3>
         <div className={styles.price_section}>
-          <span className={styles.original_price}>
+          {/* <span className={styles.original_price}>
             {costPrice ? `$${costPrice}` : ''}
-          </span>
+          </span> */}
           <span className={styles.selling_price}>${data.price}</span>
-          {data.discount && (
+          {/* {data.discount && (
             <div className={styles.discount_area}>
               {data.discount}%
               <span className={styles.price_discount_Off_txt}>off</span>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </motion.div>

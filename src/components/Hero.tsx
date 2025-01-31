@@ -1,13 +1,28 @@
 import { useEffect, useState } from 'react'
-import slide1 from '../assets/images/slides/10204575.jpg'
-import slide2 from '../assets/images/slides/10226827.jpg'
-import slide3 from '../assets/images/slides/10238919.jpg'
+import useWindowDimension from '../utils/useWindowDimension'
+import slide1 from '../assets/images/slides/banner_1.png'
+import slide2 from '../assets/images/slides/banner_2.png'
+import slide3 from '../assets/images/slides/banner_3.png'
+import mobile_slide1 from '../assets/images/slides/mobile_banner_1.png'
+import mobile_slide2 from '../assets/images/slides/mobile_banner_2.png'
+import mobile_slide3 from '../assets/images/slides/mobile_banner_3.png'
 
 import styles from '../styles/modules/hero.module.scss'
 
 const Hero = () => {
-  const allSlides = [slide1, slide2, slide3]
+  const { width } = useWindowDimension()
+  let allSlides = [slide1, slide2, slide3]
   const [currentPos, setCurrentPos] = useState(0)
+
+  if (width <= 768) {
+    allSlides = [mobile_slide1, mobile_slide2, mobile_slide3]
+  }
+
+  // useEffect(() => {
+  //   if (width <= 768) {
+
+  //   }
+  // }, [width])
 
   const handleSliding = (btnName: 'left' | 'right') => {
     if (btnName === 'left') {

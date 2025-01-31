@@ -12,7 +12,7 @@ const CategoryProducts = () => {
     queryKey: [`product-${category_name}`],
     queryFn: () =>
       getProducts(
-        `https://fakestoreapi.in/api/products/category?type=${category_name}`
+        `https://fakestoreapi.com/products/category/${category_name}`
       ),
   })
 
